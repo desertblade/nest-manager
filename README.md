@@ -28,21 +28,21 @@ This is a Child-SmartApp that allows you to creat different types of automations
 * @scpickle
 
 ## Version Info
-__Latest App Version:__ |
------------ | -----------
-Nest Manager | __*v2.5.0*__
+__SmartApp:__ | __Version:__ |
+:--- | :---: |
+Nest Manager | *v2.5.4* |
 
-__Latest Device Versions:__ |
------------ | -----------
-Nest Presence Device | __*v2.5.0*__
-Nest Protect Device | __*v2.5.0*__
-Nest Thermostat Device | __*v2.5.0*__
-Nest Weather Device | __*v2.5.0*__
+__Device:__ | Version: |
+:--- | :---: |
+Nest Presence Device | *v2.5.0* |
+Nest Protect Device | *v2.5.2* |
+Nest Thermostat Device | *v2.5.1* |
+Nest Weather Device | *v2.5.0* |
 
 ## What's New
 ***Manager App:***
 
- * **NEW**: Merged Manager and Automations into one codebase but it is still two apps... Thanks @ady264"
+ * **NEW**: Merged Manager and Automations into one codebase but it is still two apps... Thanks @ady624
  * **NEW**: Thermostat ST Mode TempSetpoint Automation to select your thermostats and each mode to use for that thermostat and then choose the heat/cool setpoints for each mode. This is completely dynamic and will allow different setpoints for each thermostat selected.
  * **NEW**: Remote Sensors now allows selection of switches to run along with the thermostat to help with comfort. This support includes automation detection of devices that support 3-speeds, and allows setting speed based on individual threshold temps.
  * **ADDED**: Ability to Disable each automations individually.
@@ -94,85 +94,145 @@ Nest Weather Device | __*v2.5.0*__
  * The devices look great :smile:
 
 ## 3rd-Party SmartApp Compatibility (Confirmed)
----------- | ----------
- [Keenect](https://community.smartthings.com/t/release-keenect-v1-2-0-optional-separate-vo-settings-for-cooling-vent-obstruction-auto-clear/39119) | @Mike_Maxwell 
- [SmartTiles](http://smarttiles.click/) | @625alex 
- [Rule Machine (Rules and Custom Commands)](https://community.smartthings.com/t/rule-machine-version-1-9-released/43204) | @bravenel 
- [CoRE](https://community.smartthings.com/t/beta-milestone-1-core-communitys-own-rules-engine/48189?u=tonesto7)  | @ady264
- Keep Me Cozy (I & II) (link) | 
- Routines | @smartthings
 
+SmartApp | Author |
+:--- | :--- |
+[Keenect](https://community.smartthings.com/t/release-keenect-v1-2-0-optional-separate-vo-settings-for-cooling-vent-obstruction-auto-clear/39119) | @Mike_Maxwell |
+[SmartTiles](http://smarttiles.click/) | @625alex |
+[CoRE](https://community.smartthings.com/t/beta-milestone-1-core-communitys-own-rules-engine/48189?u=tonesto7) | @ady624 |
+[Ask Alexa](https://community.smartthings.com/t/release-ask-alexa) | @MichaelS |
+Rule Machine (No Longer Available) | @bravenel |
  
-## Installation
+ 
+## New Installations
+Thanks @MichaelS for letting me borrow from your Ask Alexa Install Instructions...
 
-### Method 1: (Recommended)
-_Enabling the GitHub Integration in your IDE is by far the easiest way to install and get the latest updates for Nest Connect App, Presence, Protect and Thermostat devices._
+### Method 1: Using Git Integration (Recommended) 
+
+_Enabling the GitHub Integration in your IDE is by far the easiest way to install and get the latest updates for Nest Manager App, Presence, Protect, Thermostat, and Weather devices._
 
 If you don't already have Git Integration setup please visit __*[GitHub Integration Instructions](http://docs.smartthings.com/en/latest/tools-and-ide/github-integration.html)*__
 
-#### The Nest Manager and Nest Automations Apps
- 
- * Go to "**My SmartApps**" in the IDE
- * Click on "**Settings**"
- * Click on "**Add New Repository**"
- * Owner: **tonesto7**, Name: **nest-manager**, Branch: **master**
- 
-	##### Nest Manager
- 
- * Under "**My SmartApps**" Click on "**Update from Repo**" and select ***nest-manager (master)*** 
- * Check the box next to ***nest-manager*** and then check "**publish**" then click "**Execute Update**"
- * Click on the ***Nest Manager*** app link and select "**Publish**" and "**For me**" 
- 
-    ##### Nest Automations
- 
- * Make sure to Remove all existing automations before upgrading the manager. 
- * Once all automations are removed please delete the ***Nest Automations*** Smart App from the IDE
- 
-    ### *You will also need to Enable OAuth under the Nest Manager app preferences in the IDE*
+**Git Integration is not currently available outside of US**
+
+For advanced users who have their SmartThings IDE integrated with GitHub, the installation and maintaining of code becomes very simple. This manual will not go into detail about setting up your IDE with GitHub; those instructions can be found on the SmartThings web site [[http://docs.smartthings.com/en/latest/tools-and-ide/github-integration.html?highlight=git]]
+
+
+#### The Manager App
+* First, find the **Settings** button at the top of your SmartThings IDE page (this will only appear after you integrate with GitHub)
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/IdeSettings.jpg)
+
+* Clicking this button will open the GitHub Repository Integration page. To find the **Nest Manager** SmartApp code, enter the information as you see it below:
+
+**Owner:** tonesto7
+
+**Name:** nest-manager
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/GithubIntegration.png)
+
+* Close the GitHub Repository Integration page
+* Next, click the **Update from Repo** button at the upper-right corner of the IDE
+* On the right-hand column, scroll down to click the apps you want to install. This will typically be:
+
+    `**SmartApp**: smartapps/tonesto7/nest-manager.src/nest-manager.groovy`
+    
+* Check the Publish box and Click the **Execute Update** in the bottom-right corner of the screen. When done syncing, the new apps should now appear in your IDE. If they ever change color, that indicates a new version is available.
+
+ ***REMINDER!!!: Remember to Enable OAuth under the Nest Manager's App Settings (Instructions Below)***
 
 #### The Presence, Protect, Thermostat and Weather Device Handlers
  
- * Go to "**My Device Handlers**" in the IDE (Not necessary if you added repository for the app)
- * Click on "**Settings**"
- * Click on **Add new repository**
- * Owner: **tonesto7**, Name: **nest-manager**, Branch: **master**
- * Under My Device Types Click on ***Update from Repo*** and select the ***nest-manager***
- * Check the box next to ***nest-presence***, ***nest-protect***, ***nest-thermostat***, and ***nest-weather*** then click **Execute Update**
- * Click on each device link and select "**Publish** and **For Me**
- 
+ * Go to "**My Device Handlers**" in the IDE
+ * Under My Device Handlers Click on ***Update from Repo*** and select ***nest-manager*** from the drop-down
+ * Check the box next to ***nest-presence***, ***nest-protect***, ***nest-thermostat***, and ***nest-weather*** then check the **Publish** box and click **Execute Update**
+  
 That's it your Done in the IDE... Just install "**Nest Manager**" from the ***Marketplace > MyApps*** under the mobile app.
 
-When updates are available to the source code you will see the color change from black in the IDE.
+When updates are available to the source code you will see the Link color change from black in the IDE.
 
 ------
 
 ### Method 2: The Manual Way
-#### The Nest Manager App
+#### Nest Manager Code Installation
+
+The code for the SmartThings SmartApp is found on the GitHub site:
+
+***Nest Manager Source:*** **[https://github.com/tonesto7/nest-manager/blob/master/smartapps/tonesto7/nest-manager.src/nest-manager.groovy](https://github.com/tonesto7/nest-manager/blob/master/smartapps/tonesto7/nest-manager.src/nest-manager.groovy)**
+
+While on the GitHub site, find the **Raw** button and click it. This will bring up a non-formatted page with just the code present. Select all of the code (typically CTRL+A) and copy It (typically CTRL+C).
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/git_raw_ss.png)
+
+
+* Next, point your browser to you SmartThings IDE for your country (i.e. [http://ide.smartthings.com](http://ide.smartthings.com) or [https://graph-eu01-euwest1.api.smartthings.com](https://graph-eu01-euwest1.api.smartthings.com) and **Log In**.
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/700px-Loginscreen.jpg)
+
+* Once you are logged in, find the **My SmartApps** link on the top of the page.  Clicking **My SmartApps** will allow you to produce a new SmartApp.
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/700px-MySmartApps.png)
+
+* Find the button on this page labeled **+New SmartApp** and click it.
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/new_smartapp_button.png)
+
+* Since you already have the code in your computer’s clipboard, find the tab along the top section called **From Code**. In the area provided, paste (typically CTRL+V) the code you copied from GitHub. Click **Create** in the bottom left corner of the page.
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/700px-NewSmartAppCreate.png)
+
+* This will bring up another page, with the code now formatted within the IDE. If the code was copied correctly, there are no other steps except to save and publish the code. In the upper right corner of the page, find and click **Save**. Now, click **Publish (For Me)**, and you should receive a confirmation that the code has been published successfully.
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/SavePublish.png)
+
+ ***REMINDER!!!: Remember to Enable OAuth under the Nest Manager's App Settings (Instructions Below)***
  
- * Log into your SmartThings account at [https://graph.api.smartthings.com/](https://graph.api.smartthings.com/)
- * Go to "**My SmartApps**"
- * Click on "**+ New SmartApp**"
- * Choose "**From Code**"
- * Copy source code from ***nest-manager.src***
- * Click "**Create**"
- * Click on "**Publish**" and "**For me**" 
- * Go into SmartApp **Nest Manager** Settings
- * Click on "**App Settings**" and ***enable OAuth*** and click "**Update**"
- 
-#### The Nest Automations App
- * Make sure to Remove all existing automations before upgrading the manager. 
- * Once all automations are removed please delete the ***Nest Automations*** Smart App from the IDE
- 
+ - - - 
 #### The Presence, Protect, and Thermostat Device Handlers
+ ***Thermostat Source Code:*** **[https://github.com/tonesto7/nest-manager/blob/master/devicetypes/tonesto7/nest-thermostat.src/nest-thermostat.groovy](https://github.com/tonesto7/nest-manager/blob/master/devicetypes/tonesto7/nest-thermostat.src/nest-thermostat.groovy)**
+ 
+ ***Protect Source Code:*** **[https://github.com/tonesto7/nest-manager/blob/master/devicetypes/tonesto7/nest-protect.src/nest-protect.groovy](https://github.com/tonesto7/nest-manager/blob/master/devicetypes/tonesto7/nest-protect.src/nest-protect.groovy)**
+
+ ***Presence Source Code:*** **[https://github.com/tonesto7/nest-manager/blob/master/devicetypes/tonesto7/nest-presence.src/nest-presence.groovy](https://github.com/tonesto7/nest-manager/blob/master/devicetypes/tonesto7/nest-presence.src/nest-presence.groovy)**
+ 
+ ***Weather Source Code:*** **[https://github.com/tonesto7/nest-manager/blob/master/devicetypes/tonesto7/nest-weather.src/nest-weather.groovy](https://github.com/tonesto7/nest-manager/blob/master/devicetypes/tonesto7/nest-weather.src/nest-weather.groovy)**
+ 
+***Repeat these steps below in the same manner you did for the manager app under **My Device Handlers** for each device above:***
+
  * Go to "**My Device Handlers**"
  * Create "**New Device Handler**"
  * Choose "**From Code**"
- * Copy Source code from *nest-protect.src*
- * Repeat for ***nest-presence.src***
- * Repeat for ***nest-thermostat.src***
- * Remember to open each device and click "**Publish**" and "**For me**"
+ * Copy Source code for Device and click **Create**
+ * Remember to click "**Publish**" and "**For me**"
 
-#### Setting up Nest Manager App
+------
+###Enabling OAuth
+**Nest Manager** requires OAuth to operate correctly.
+
+To enable OAuth, first find and click the **App Settings** button in the upper right corner of the page.
+
+From here, find the **OAuth** section toward the bottom of the page. 
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/700px-OAuthBtn.png)
+ 
+Clicking the **OAuth** link will reveal a button labeled **Enable OAuth in Smart App**. Click this button. The screen will change, giving you a unique code for your **Client ID** and **Client Secret**. These are the foundations of the security of your app and should be kept secret. You do not need to memorize or write down these codes; nor do you need to add any other information to this page.
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/700px-OAuth.jpg)
+
+The final step is to press the **Update** button at the bottom left corner of the screen, or go back to your code by using the button in the upper-right region of the page, then **Save**, then **Publish** the SmartApp again. 
+
+![](https://raw.githubusercontent.com/tonesto7/nest-manager/master/Documents/images/SavePublish.png)
+
+------
+
+## Applying Updates
+Performing updates using Git Integration is the fastest method of updating.
+Just follow the same methods as the install by clicking on update from repo.
+
+If you don't have Git Integration you will just need to copy/paste the code from the source links above over each app/device and press **Save** the **Publish** for me. 
+
+-----
+## Setting up Nest Manager App
  * In the SmartThings Mobile App
  * Go to "**Marketplace**" and select "**SmartApps**"
  * At the bottom of the list, select "**My Apps**"
@@ -185,6 +245,9 @@ When updates are available to the source code you will see the color change from
  * Choose *Add Weather Device* (Optional)
  * Modify any preferences you would like (Optional)
  * Tap on "**Done**"
+
+
+
 
 ## Issues and Troubleshooting
 
